@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Employee List</title></head>
+<body>
+<h1>Employees</h1>
+<a href="{% url 'employee_create' %}">Add Employee</a>
+<ul>
+{% for emp in employees %}
+    <li>{{ emp.name }} ({{ emp.email }}) -
+        {% if emp.department %}
+            {{ emp.department.name }}
+        {% else %}
+            No Department
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+</body>
+</html>

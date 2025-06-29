@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add Employee</title></head>
+<body>
+<h1>Create Employee</h1>
+<form method="post">
+    {% csrf_token %}
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    Department:
+    <select name="department">
+        {% for dept in departments %}
+        <option value="{{ dept.id }}">{{ dept.name }}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
